@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -31,12 +30,8 @@ public class Guru99Test {
 
     }
 
-    @DataProvider(name = "testGuruWithData")
-    public Object[][] loginData() throws Exception {
-        return UtilGuru.getDataFromExcel(UtilGuru.FILE_PATH, UtilGuru.SHEET_NAME, UtilGuru.TABLE_NAME);
-    }
 
-    @Test(dataProvider = "testGuruWithData")
+    @Test()
     public void guru99Test() throws FileNotFoundException {
 
         String username, password, actualTitle, actualBoxMessage;
